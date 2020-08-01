@@ -123,15 +123,10 @@ class App extends Component {
     <Router>
     <div className="App">
       <Navbar />
-      <header className="App__header">
-        {!this.state.isCartOpen &&
-        <div className="App__view-cart-wrapper">
-          <button className="App__view-cart" onClick={() => this.setState({isCartOpen: true})}>Cart</button></div>}
-      </header>
-      <Route exact path = "/" component={Landing} />
+      <Route exact path = "/" component={MainPage} />
       <Route exact path = "/register" component={Register} />
       <Route exact path = "/login" component={Login} />
-      <Route exact path = "/mainPage" component={MainPage} />
+      {/* <Route exact path = "/mainPage" component={MainPage} /> */}
       <Switch>
         <PrivateRoute exact path="/dashboard" component = {Dashboard} />
       </Switch>

@@ -4,6 +4,15 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
 const app = express();
+require("isomorphic-fetch");
+const dotenv = require("dotenv");
+const Koa = require("koa");
+const next = require("next");
+const { default: createShopifyAuth } = require("@shopify/koa-shopify-auth");
+const { verifyRequest } = requier("@shopify/koa-shopify-auth");
+const session = require("koa-session");
+dotenv.config();
+const { SHOPIFY_API_SECRET_KEY, SHOPIFY_API_KEY } = process.env;
 
 app.use(
     bodyParser.urlencoded({
