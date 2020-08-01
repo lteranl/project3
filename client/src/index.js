@@ -6,13 +6,13 @@ import * as serviceWorker from './serviceWorker';
 import Client from "shopify-buy"
 
 const client = Client.buildClient({
-  storefrontAccessToken: "123f6f392a6b7208a7cb7cb9caf217f1",
-  domain: "project3uci.myshopify.com"
+  storefrontAccessToken: "4c2e018f5ac20c3007d357487930589e",
+  domain: "uciproject3.myshopify.com"
 })
 
 ReactDOM.render(
 
-    <App />,
+    <App client={client} />,
 
   document.getElementById('root')
 );
