@@ -14,6 +14,9 @@ const session = require("koa-session");
 dotenv.config();
 const { SHOPIFY_API_SECRET_KEY, SHOPIFY_API_KEY } = process.env;
 
+const app2 = next({ dev });
+
+
 app.use(
     bodyParser.urlencoded({
         extended: false
@@ -38,3 +41,30 @@ app.use("/api/users", users);
 
     const port = process.env.PORT || 5000;
     app.listen(port, () => console.log(`Server up on port ${port} !`));
+
+    app2.prepare().then(()=>{;
+        const server = new Koa();
+        server.use(session({ secure: true, sameSite: "none" }, server));
+        server.keys = [SHOPIFY_API_SECRET_KEY];
+
+
+server.use(
+    createShopifyAuth({
+        apiKey: SHOPIFY_API_KEY,
+        secret: SHOPIFY_API_SECRET_KEY,
+        scopes: ["read_products"],
+        afterAuth(ctx) {
+            const { shop, accessToken } = ctx.session;
+            ctx.redirect("/");
+        }
+    })
+)
+
+server.use(verifyRequest());
+server.use(async (ctx) => {
+    await HTMLHeadingElement(ctx.req, ctx.res);
+    ctx.respond = false;
+    ctx.res.statusCode = 200;
+    return
+});
+});
