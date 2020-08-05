@@ -15,6 +15,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import MainPage from "./components/mainpage/mainPage";
+import Products from "./components/shopify/Products";
 
 
 //checks for token, then checks to see if token expired
@@ -42,6 +43,7 @@ class App extends Component {
       <Route exact path = "/" component={MainPage} />
       <Route exact path = "/register" component={Register} />
       <Route exact path = "/login" component={Login} />
+      <Route exact path = "/products" component={Products} />
       {/* <Route exact path = "/mainPage" component={MainPage} /> */}
       <Switch>
         <PrivateRoute exact path="/dashboard" component = {Dashboard} />
