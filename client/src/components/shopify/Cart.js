@@ -28,7 +28,7 @@ class Cart extends Component {
     return( 
         <div className={`Cart ${this.props.isCartOpen ? "Cart--open" : ""}`}>
             <header className="Cart__header">
-                <h2>Your Cart</h2>
+                <h6>Your Cart</h6>
                 <button
                     onClick={this.props.handleCartClose}
                     className="Cart__close">x</button>
