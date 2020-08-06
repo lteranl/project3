@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import Cart from "../shopify/Cart";
 import Checkout from "../layout/Checkout";
 import { Link } from "react-router-dom";
+import Navbar from "../layout/Navbar";
 
 
 
@@ -78,12 +79,13 @@ class Dashboard extends Component {
     render() { const { user } = this.props.auth;
         return (
             <div style={{ height: "75vh" }} className="container valign-wrapper">
+              <Checkout />
                 <div className="row">
                     <div className="col s12 center-align">
                         <h1>{Date(" ")}</h1>
                         <h3>Hello, {user.name.split(" ")[0]}</h3>
                         <p className="flow-text black-text text-darken-1"/>
-                        <Checkout />
+
                         <Cart 
                         checkout={this.state.checkout}
                         isCartOpen={this.state.isCartOpen}
