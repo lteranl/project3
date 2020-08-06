@@ -78,12 +78,15 @@ class Dashboard extends Component {
 
     render() { const { user } = this.props.auth;
         return (
+          <div className="nav">
+            <Checkout/>
+          
             <div style={{ height: "75vh" }} className="container valign-wrapper">
-              <Checkout />
+     
                 <div className="row">
                     <div className="col s12 center-align">
-                        <h1>{Date(" ")}</h1>
-                        <h3>Hello, {user.name.split(" ")[0]}</h3>
+                        <h5>{Date(" ")}</h5>
+                        <h5>Hello, {user.name.split(" ")[0]}</h5>
                         <p className="flow-text black-text text-darken-1"/>
 
                         <Cart 
@@ -105,7 +108,7 @@ class Dashboard extends Component {
                                 }}
                                 onClick = {this.onLogoutClick}
                                 className="btn btn-large">Logout</button>
-            
+            </div>
                     </div>
                 </div>
             </div>
