@@ -1,0 +1,23 @@
+.root{
+    --mainBlue:#2a2a72;
+    --lightBlue:#009ffd;
+    --mainWhite:#f3f3f3;
+    --mainDark:#232528;
+    --mainYellow: #ffa400;
+  }
+  
+  body{
+    font-family: 'Times New Roman', Times, serif;
+    background: var(--mainWhite);
+    color: var(--mainDark);
+  }
+  
+  .text-title{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+  }
+  
+  .text-blue{
+    color: var(--mainBlue)
+  }
