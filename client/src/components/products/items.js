@@ -1,17 +1,18 @@
+
 const Items = [{
-    "img" : "./models/imgs",
-    "description" : "2PCS KHAKI 1950S SOLID BLOUSE & SKIRT",
+    "img" : "/images/2pckhakis.jpg",
+    "description" : "2PCS KHAKI 1950S",
     "price": "$39.99",
    },
 
    {
-    "img" : "./models/imgs",
+    "img" : "./models/Products",
     "description" : "Denim Jacket",
     "price": "$42.99",
    },
 
    {
-    "img" : "./models/imgs",
+    "img" : "./images/flowerShirt",
     "description" : "Flower Shirt",
     "price": "$12.99",
    },
@@ -28,7 +29,7 @@ const Items = [{
     "price": "$109",
    },
    {
-    "img" : "./models/imgs",
+    "img" : "./models/images/wowJacket.jpg",
     "description" : "Wow Jacket",
     "price": "$25",
    },

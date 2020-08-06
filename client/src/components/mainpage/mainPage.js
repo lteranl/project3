@@ -2,13 +2,14 @@ import React from 'react';
 import '../../App.css';
 import { Link, withRouter } from "react-router-dom";
 import Items from "../products/items"
+import "../products/images"
+import imageLoader from "../products/images"
+
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
-const items = [
-"../products/items"
-]
+
 function App() {
   return (
     // <React.Fragment>
@@ -34,7 +35,7 @@ function App() {
           {Items.map(item=> <div class="col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src="images/sample-1.jpg" />
+              <img src={item.img} />
               <span class="card-title">{item.title}</span>
               <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
             </div>
