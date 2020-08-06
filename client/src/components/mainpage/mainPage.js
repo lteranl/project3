@@ -2,14 +2,13 @@ import React from 'react';
 import '../../App.css';
 import { Link, withRouter } from "react-router-dom";
 import Items from "../products/items"
-import "../products/images"
-import imageLoader from "../products/images"
+
 
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
-const img = [{ src: "../products/images/2pckhakis.jpg"}, { source: '../products/images/denimJacket.jpg'}]
+
 function App() {
   return (
     // <React.Fragment>

@@ -1,35 +1,35 @@
 
 const Items = [{
-    "img" : "/images/2pckhakis.jpg",
+    "img" : "./images/2pckhakis.jpg",
     "description" : "2PCS KHAKI 1950S",
     "price": "$39.99",
    },
 
    {
-    "img" : "./models/Products",
+    "img" : "./images/denimJacket.jpg",
     "description" : "Denim Jacket",
     "price": "$42.99",
    },
 
    {
-    "img" : "./images/flowerShirt",
+    "img" : "./images/flowerShirt.jpg",
     "description" : "Flower Shirt",
     "price": "$12.99",
    },
 
    {
-    "img" : "./models/imgs",
+    "img" : "./images/halloweenCostume.jpg",
     "description" : "Halloween Costume",
     "price": "$39.99",
    },
 
    {
-    "img" : "./models/imgs",
+    "img" : "./images/rockabillyShirt.jpg",
     "description" : "Rockabilly Shirt",
     "price": "$109",
    },
    {
-    "img" : "./models/images/wowJacket.jpg",
+    "img" : "./images/wowJacket.jpg",
     "description" : "Wow Jacket",
     "price": "$25",
    },
