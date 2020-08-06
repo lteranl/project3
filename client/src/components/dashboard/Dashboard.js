@@ -91,7 +91,8 @@ class Dashboard extends Component {
                         updateQuantityInCart={this.updateQuantityInCart}
                         removeLineItemInCart={this.removeLineItemInCart}
                         />
-                        <Link to="/" className="btn-flat">Not Done Shopping?</Link>
+                        <br/>
+                        <Link to="/" className="btn btn-flat">Not Done Shopping?</Link>
                         <br/>
                             <button
                                 style={{

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 class Checkout extends Component {
     render() {
         return (
-            <div style={{ height: "10vh" }} className="coontainer valign-wrapper">
+            <div style={{ height: "10vh" }} className="container valign-wrapper">
                 <div className = "row">
                     <div className = "col s12 center-align">
-                        <h2>Checkout</h2>
+                        <h2 className="col s12 center-align">Your Cart</h2>
                     </div>
                 </div>
             </div>
