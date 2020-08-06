@@ -9,7 +9,7 @@ import imageLoader from "../products/images"
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
-
+const img = [{ src: "../products/images/2pckhakis.jpg"}, { source: '../products/images/denimJacket.jpg'}]
 function App() {
   return (
     // <React.Fragment>
