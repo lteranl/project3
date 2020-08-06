@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Cart from "../shopify/Cart";
 import Checkout from "../layout/Checkout";
+import { Link } from "react-router-dom";
 
 
 
@@ -90,7 +91,8 @@ class Dashboard extends Component {
                         updateQuantityInCart={this.updateQuantityInCart}
                         removeLineItemInCart={this.removeLineItemInCart}
                         />
-                       
+                        <Link to="/" className="btn-flat">Not Done Shopping?</Link>
+                        <br/>
                             <button
                                 style={{
                                     width: "130px",

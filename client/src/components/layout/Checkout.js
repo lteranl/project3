@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 class Checkout extends Component {
     render() {
         return (
-            <div style={{ height: "75vh" }} className="coontainer valign-wrapper">
+            <div style={{ height: "10vh" }} className="coontainer valign-wrapper">
                 <div className = "row">
                     <div className = "col s12 center-align">
                         <h2>Checkout</h2>
