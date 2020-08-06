@@ -5,7 +5,6 @@ import { Link, withRouter } from "react-router-dom";
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
-import Navbar from "../layout/Navbar"
 const dummy = [
   {title: "Supafly",
 desc: "come here if you want to be fly like my dude snoop lion"},
@@ -24,7 +23,7 @@ function App() {
       <div className="container">
           <nav>
           <div class="nav-wrapper">
-            <a href="#!" className="brand-logo right">Grannies</a>
+            <a href="#!" className="brand-logo right"></a>
             <Link to="/" className="btn-flat waves-effect">
                     <b>Home</b>
                 </Link>

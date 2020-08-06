@@ -10,14 +10,11 @@ import './App.css';
 
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import MainPage from "./components/mainpage/mainPage";
 
 import Products from "./components/shopify/Products";
-import Cart from "./components/shopify/Cart";
 
 
 

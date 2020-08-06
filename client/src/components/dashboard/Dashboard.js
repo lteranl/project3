@@ -5,7 +5,6 @@ import { logoutUser } from "../../actions/authActions";
 import Cart from "../shopify/Cart";
 import Checkout from "../layout/Checkout";
 import { Link } from "react-router-dom";
-import Navbar from "../layout/Navbar";
 
 
 
