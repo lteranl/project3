@@ -26,11 +26,10 @@ function App(props) {
             <a href="#!" className="brand-logo right">Grannies</a>
             <Link to="/" className="btn-flat waves-effect">
                     <b>Home</b>
-                </Link>
-
+              </Link>
+              <Link to="/dashboard" className="btn-flat waves-effect">Cart</Link>
             {!user.id ? <><Link to="/login" className="btn-flat waves-effect">Login</Link>
-            <Link to="/register" className="btn-flat waves-effect">Register Now</Link></> : <button onClick={handleLogout}>Log Out</button>}
-            <Link to="/dashboard" className="btn-flat waves-effect">Cart</Link>
+            <Link to="/register" className="btn-flat waves-effect">Register Now</Link></> : <button className="btn-flat waves-effect" onClick={handleLogout}>Log Out</button>}
           </div>
         </nav>
         <div>

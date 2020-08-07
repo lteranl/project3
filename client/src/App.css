@@ -21,10 +21,9 @@
   .text-blue{
     color: var(--mainBlue)
   }
-
- /* .card{
-   ;
- } */
+  btn-flat{
+    font-weight: bolder;
+  }
 
   .card .card-image{
     border-radius: 2px 2px 0 0;
