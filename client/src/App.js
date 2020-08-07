@@ -10,15 +10,11 @@ import './App.css';
 
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import MainPage from "./components/mainpage/mainPage";
-import Products from "./components/shopify/Products";
 
 import Products from "./components/shopify/Products";
-import Cart from "./components/shopify/Cart";
 
 
 
@@ -124,11 +120,8 @@ class App extends Component {
     <Router>
     <div className="App">
       <header className="App__header">
-        {!this.state.isCartOpen &&
-        <div className="App__view-cart-wrapper">
-          <button className="App__view-cart" onClick={() => this.setState({isCartOpen: true})}>Cart</button></div>}
+       
       </header>
-      <Route exact path = "/" component={Landing} />
 
       <Route exact path = "/" component={MainPage} />
 
@@ -139,18 +132,7 @@ class App extends Component {
       <Switch>
         <PrivateRoute exact path="/dashboard" component = {Dashboard} />
       </Switch>
-      <Products
-        products={this.state.products}
-        client={this.props.client}
-        addVariantToCart={this.addVariantToCart}
-        />
-      <Cart 
-        checkout={this.state.checkout}
-        isCartOpen={this.state.isCartOpen}
-        handleCartClose={this.handleCartClose}
-        updateQuantityInCart={this.updateQuantityInCart}
-        removeLineItemInCart={this.removeLineItemInCart}
-        />
+
     </div>
     </Router>
     </Provider>
