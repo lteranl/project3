@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import Cart from "../shopify/Cart";
 import Checkout from "../layout/Checkout";
 import { Link } from "react-router-dom";
-
-
+import store from '../../store';
+import {REMOVE_SHOPPING_CART} from "../../actions/types"
 
 class Dashboard extends Component {
 
@@ -17,7 +16,8 @@ class Dashboard extends Component {
             isCartOpen: false,
             checkout: { lineItems: [] },
             products: [],
-            shop: {}
+            shop: {},
+            cart: store.getState().cart.cart
           };
        
           this.handleCartClose = this.handleCartClose.bind(this);
@@ -26,7 +26,11 @@ class Dashboard extends Component {
           this.removeLineItemInCart = this.removeLineItemInCart.bind(this);
         };
     
-         
+      // componentDidMount(){
+      //   async()=> {
+      //     const {}
+      //   }
+      // }
      addVariantToCart(variantId, quantity){
         this.setState({
           isCartOpen: true,
@@ -75,30 +79,28 @@ class Dashboard extends Component {
 
     render() { const { user } = this.props.auth;
         return (
+          <>
           <div className="nav">
             <Checkout/>
-<<<<<<< HEAD
-
-            <div id="my-store-34521001"></div>
-<div>
-<script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?34521001&data_platform=code&data_date=2020-08-06" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-34521001");</script>
-</div>
-          
-=======
->>>>>>> 2d165e0c61c491d93d7b19cd44ba1d55af6acb77
             <div style={{ height: "75vh" }} className="container valign-wrapper">
                 <div className="row">
                     <div className="col s12 center-align">
                         <h5>{Date(" ")}</h5>
                         <h5>Hello, {user.name.split(" ")[0]}</h5>
                         <p className="flow-text black-text text-darken-1"/>
-                        <Cart 
-                        checkout={this.state.checkout}
-                        isCartOpen={this.state.isCartOpen}
-                        handleCartClose={this.handleCartClose}
-                        updateQuantityInCart={this.updateQuantityInCart}
-                        removeLineItemInCart={this.removeLineItemInCart}
-                        />
+                        {this.state.cart.map(item=> <div class="cardImg col s12 m4">
+          <div class="card">
+            <div class="card-image">
+              <img src={this.state.cart.img} />
+              <span class="card-title">{this.state.cart.title}</span>
+              <a onClick={()=> props.dispatch({type: REMOVE_SHOPPING_CART, payload:item})} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">X</i></a>
+            </div>
+            <div class="card-content">
+              <p>{this.state.cart.description}</p>
+              <p>{item.state.cart.price}</p>
+            </div>
+          </div>
+        </div>)}
                         <br/>
                         <Link to="/" className="btn btn-flat">Not Done Shopping?</Link>
                         <br/>
@@ -115,6 +117,9 @@ class Dashboard extends Component {
                     </div>
                 </div>
             </div>
+
+            {this.state.cart.map(a=> <h1>YOU HAVESOMETHING IN CART!</h1>)}
+            </>
         )
     }
 }

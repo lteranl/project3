@@ -4,6 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import Items from "../products/items"
 import store from '../../store';
 import {logoutUser} from '../../actions/authActions';
+import { SET_SHOPPING_CART} from '../../actions/types'
 
 import {connect} from 'react-redux'
 
@@ -13,7 +14,7 @@ import {connect} from 'react-redux'
 // import '@material-ui/core'
 function App(props) {
   const {auth:{user}} = store.getState();
-  console.log(props)
+  console.log(props.cart)
   const handleLogout = () => {
     console.log("logging out!")
     logoutUser()(props.dispatch);
@@ -44,7 +45,7 @@ function App(props) {
             <div class="card-image">
               <img src={item.img} />
               <span class="card-title">{item.title}</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              <a onClick={()=> props.dispatch({type: SET_SHOPPING_CART, payload:item})} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
               <p>{item.description}</p>
