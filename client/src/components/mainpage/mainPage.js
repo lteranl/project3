@@ -2,16 +2,22 @@ import React from 'react';
 import '../../App.css';
 import { Link, withRouter } from "react-router-dom";
 import Items from "../products/items"
-import { logoutUser } from "../../actions/authActions";
+import store from '../../store';
+import {logoutUser} from '../../actions/authActions';
 
-
+import {connect} from 'react-redux'
 
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
-
-function App() {
+function App(props) {
+  const {auth:{user}} = store.getState();
+  console.log(props)
+  const handleLogout = () => {
+    console.log("logging out!")
+    logoutUser()(props.dispatch);
+  }
   return (
     // <React.Fragment>
       <div className="container">
@@ -20,10 +26,10 @@ function App() {
             <a href="#!" className="brand-logo right">Grannies</a>
             <Link to="/" className="btn-flat waves-effect">
                     <b>Home</b>
-                </Link>
-            <Link to="/login" className="btn-flat waves-effect">Login</Link>
-            <Link to="/register" className="btn-flat waves-effect">Register Now</Link>
-            <Link to="/dashboard" className="btn-flat waves-effect">Cart</Link>
+              </Link>
+              <Link to="/dashboard" className="btn-flat waves-effect">Cart</Link>
+            {!user.id ? <><Link to="/login" className="btn-flat waves-effect">Login</Link>
+            <Link to="/register" className="btn-flat waves-effect">Register Now</Link></> : <button className="btn-flat waves-effect" onClick={handleLogout}>Log Out</button>}
           </div>
         </nav>
         <div>
@@ -33,7 +39,7 @@ function App() {
         </div>
 
         <div class="row" style={{marginTop: "10vh"}}>
-          {Items.map(item=> <div class="col s12 m4">
+          {Items.map(item=> <div class="cardImg col s12 m4">
           <div class="card">
             <div class="card-image">
               <img src={item.img} />
@@ -53,5 +59,8 @@ function App() {
     // </React.Fragment>
   );
 }
-
-export default App;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  cart: state.cart
+});
+export default connect(mapStateToProps) (App);

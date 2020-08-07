@@ -71,28 +71,27 @@ class Dashboard extends Component {
         e.preventDefault();
         this.props.logoutUser();
     };
-
-    
     
 
     render() { const { user } = this.props.auth;
         return (
           <div className="nav">
             <Checkout/>
+<<<<<<< HEAD
 
             <div id="my-store-34521001"></div>
 <div>
 <script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?34521001&data_platform=code&data_date=2020-08-06" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","id=my-store-34521001");</script>
 </div>
           
+=======
+>>>>>>> 2d165e0c61c491d93d7b19cd44ba1d55af6acb77
             <div style={{ height: "75vh" }} className="container valign-wrapper">
-     
                 <div className="row">
                     <div className="col s12 center-align">
                         <h5>{Date(" ")}</h5>
                         <h5>Hello, {user.name.split(" ")[0]}</h5>
                         <p className="flow-text black-text text-darken-1"/>
-
                         <Cart 
                         checkout={this.state.checkout}
                         isCartOpen={this.state.isCartOpen}
