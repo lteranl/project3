@@ -3,17 +3,18 @@ import '../../App.css';
 import { Link, withRouter } from "react-router-dom";
 import Items from "../products/items"
 import store from '../../store';
-import {logoutUser} from '../../actions/authActions'
+import {logoutUser} from '../../actions/authActions';
+import { SET_SHOPPING_CART} from '../../actions/types'
+
 import {connect} from 'react-redux'
 
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
-logoutUser()
 function App(props) {
   const {auth:{user}} = store.getState();
-  console.log(props)
+  console.log(props.cart)
   const handleLogout = () => {
     console.log("logging out!")
     logoutUser()(props.dispatch);
@@ -44,7 +45,7 @@ function App(props) {
             <div class="card-image">
               <img src={item.img} />
               <span class="card-title">{item.title}</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              <a onClick={()=> props.dispatch({type: SET_SHOPPING_CART, payload:item})} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
               <p>{item.description}</p>
@@ -60,6 +61,7 @@ function App(props) {
   );
 }
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  cart: state.cart
 });
 export default connect(mapStateToProps) (App);
