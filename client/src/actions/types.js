@@ -1,3 +1,4 @@
 export const USER_LOADING = "USER_LOADING";
 export const GET_ERRORS = "GET_ERRORS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const SET_SHOPPING_CART = "SET_SHOPPING_CART";

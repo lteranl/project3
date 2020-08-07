@@ -2,6 +2,8 @@ import React from 'react';
 import '../../App.css';
 import { Link, withRouter } from "react-router-dom";
 import Items from "../products/items"
+import { logoutUser } from "../../actions/authActions";
+
 
 
 // import Register from "./components/auth/Register";
