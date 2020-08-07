@@ -55,9 +55,18 @@ render() {
 
 return (
     <div className="container">
+                       <nav>
+          <div class="nav-wrapper">
+            <a href="#!" className="brand-logo right">Grannies</a>
+            <Link to="/" className="btn-flat waves-effect">
+                    <b>Home</b>
+                </Link>
+            <Link to="/Register" className="btn-flat waves-effect">Register</Link>
+          </div>
+        </nav>
         <div style={{ marginTop: "3rem" }} className="row">
             <div className="col s8 offset-s2">
-                <Link to="/" className="btn-flat">Home</Link>
+                
                 <div className="col s12" style={{ paddingLeft: "11px" }}>
                     <h3>Login</h3>
                     <p className="black-text text-darken-1">
