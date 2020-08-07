@@ -71,23 +71,18 @@ class Dashboard extends Component {
         e.preventDefault();
         this.props.logoutUser();
     };
-
-    
     
 
     render() { const { user } = this.props.auth;
         return (
           <div className="nav">
             <Checkout/>
-          
             <div style={{ height: "75vh" }} className="container valign-wrapper">
-     
                 <div className="row">
                     <div className="col s12 center-align">
                         <h5>{Date(" ")}</h5>
                         <h5>Hello, {user.name.split(" ")[0]}</h5>
                         <p className="flow-text black-text text-darken-1"/>
-
                         <Cart 
                         checkout={this.state.checkout}
                         isCartOpen={this.state.isCartOpen}

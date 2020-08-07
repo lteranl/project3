@@ -48,6 +48,7 @@ export const setUserLoading = decoded => {
 }
 
 export const logoutUser = () => dispatch => {
+    console.log("ITS ALIVE!")
     localStorage.removeItem("jwtToken"); //removes token from user local
     setAuthToken(false);
     dispatch(setCurrentUser({}));
