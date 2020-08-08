@@ -7,10 +7,10 @@ import { logoutUser } from "../../actions/authActions";
 import { SET_SHOPPING_CART } from "../../actions/types";
 
 import { connect } from "react-redux";
-import Button from "@material-ui/core/Button";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
+// import AppBar from "@material-ui/core/AppBar";
+// import Toolbar from "@material-ui/core/Toolbar";
+// import Typography from "@material-ui/core/Typography";
 
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
@@ -28,9 +28,14 @@ function App(props) {
   return (
     // <React.Fragment>
     <div className="container">
-      <AppBar id="appbar" position="static" color="secondary">
+      <AppBar id="appbar" position="sticky" color="secondary">
         <Toolbar>
-          <Typography class="grannies" variant="h4">
+          <Typography
+            display="flex"
+            justifyContent="flex-end"
+            class="grannies"
+            variant="h4"
+          >
             Grannies
           </Typography>
           <Button href="" color="inherit">

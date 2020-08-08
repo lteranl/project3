@@ -110,9 +110,10 @@ class Dashboard extends Component {
                               payload: item,
                             })
                           }
+                          
                           class="btn-floating halfway-fab waves-effect waves-light red"
                         >
-                          <i class="material-icons">X</i>
+                          <i class="material-icons" >X</i>
                         </a>
                       </div>
                       <div class="card-content">
