@@ -5,6 +5,12 @@ import PropTypes from "prop-types";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
+import Button from "@material-ui/core/Button";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+
+
 class Register extends Component {
     constructor() {
         super();
@@ -55,15 +61,21 @@ componentDidMount() {
 
     return (
         <div className="container">
-                           <nav>
-          <div class="nav-wrapper">
-            <a href="#!" className="brand-logo right">Grannies</a>
-            <Link to="/" className="btn-flat waves-effect">
-                    <b>Home</b>
-                </Link>
-            <Link to="/Login" className="btn-flat waves-effect">Login</Link>
-          </div>
-        </nav>
+
+<AppBar id="appbar" position="static" color="secondary">
+        <Toolbar>
+          <Typography class="grannies" variant="h4">
+            Grannies
+          </Typography>
+          <Button href="/" color="inherit">
+            Home
+          </Button>
+          <Button href="/Login" color="inherit">
+            Login
+          </Button>
+        </Toolbar>
+      </AppBar>
+
             <div className="row">
                 <div className="col s8 offset-s2">
                     <Link to="/" className="btn-flat waves-effect">

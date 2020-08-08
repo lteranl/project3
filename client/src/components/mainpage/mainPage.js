@@ -1,67 +1,96 @@
-import React from 'react';
-import '../../App.css';
+import React from "react";
+import "../../App.css";
 import { Link, withRouter } from "react-router-dom";
-import Items from "../products/items"
-import store from '../../store';
-import {logoutUser} from '../../actions/authActions';
-import { SET_SHOPPING_CART} from '../../actions/types'
+import Items from "../products/items";
+import store from "../../store";
+import { logoutUser } from "../../actions/authActions";
+import { SET_SHOPPING_CART } from "../../actions/types";
 
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
 function App(props) {
-  const {auth:{user}} = store.getState();
-  console.log(props.cart)
+  const {
+    auth: { user },
+  } = store.getState();
+  console.log(props.cart);
   const handleLogout = () => {
-    console.log("logging out!")
+    console.log("logging out!");
     logoutUser()(props.dispatch);
-  }
+  };
   return (
     // <React.Fragment>
-      <div className="container">
-          <nav>
-          <div class="nav-wrapper">
-            <a href="#!" className="brand-logo right">Grannies</a>
-            <Link to="/" className="btn-flat waves-effect">
-                    <b>Home</b>
-              </Link>
-              <Link to="/dashboard" className="btn-flat waves-effect">Cart</Link>
-            {!user.id ? <><Link to="/login" className="btn-flat waves-effect">Login</Link>
-            <Link to="/register" className="btn-flat waves-effect">Register Now</Link></> : <button className="btn-flat waves-effect" onClick={handleLogout}>Log Out</button>}
-          </div>
-        </nav>
-        <div>
-          <ul className="products">
-            
-          </ul>
-        </div>
+    <div className="container">
+      <AppBar id="appbar" position="static" color="secondary">
+        <Toolbar>
+          <Typography class="grannies" variant="h4">
+            Grannies
+          </Typography>
+          <Button href="" color="inherit">
+            Home
+          </Button>
+          <Button href="/dashboard" color="inherit">
+            Cart
+          </Button>
+          {!user.id ? (
+            <>
+              <Button href="/login" color="inherit">
+                Login
+              </Button>
+              <Button href="/register" color="inherit">
+                Register Now
+              </Button>
+            </>
+          ) : (
+            <Button color="inherit" onClick={handleLogout}>
+              Log Out
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
 
-        <div class="row" style={{marginTop: "10vh"}}>
-          {Items.map(item=> <div class="cardImg col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src={item.img} />
-              <span class="card-title">{item.title}</span>
-              <a onClick={()=> props.dispatch({type: SET_SHOPPING_CART, payload:item})} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>{item.description}</p>
-              <p>{item.price}</p>
-            </div>
-          </div>
-        </div>)}
-        </div>
+      <div>
+        <ul className="products"></ul>
       </div>
 
+      <div class="row" style={{ marginTop: "10vh" }}>
+        {Items.map((item) => (
+          <div class="cardImg col s12 m4">
+            <div class="card">
+              <div class="card-image">
+                <img src={item.img} />
+                <span class="card-title">{item.title}</span>
+                <a
+                  onClick={() =>
+                    props.dispatch({ type: SET_SHOPPING_CART, payload: item })
+                  }
+                  class="btn-floating halfway-fab waves-effect waves-light red"
+                >
+                  <i class="material-icons">add</i>
+                </a>
+              </div>
+              <div class="card-content">
+                <p>{item.description}</p>
+                <p>{item.price}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
     // </React.Fragment>
   );
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  cart: state.cart
+  cart: state.cart,
 });
-export default connect(mapStateToProps) (App);
+export default connect(mapStateToProps)(App);
