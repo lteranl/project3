@@ -168,6 +168,6 @@ router.get('/addToCart', auth, (req, res) =>{
             )
         })
         
-        
+    
         module.exports = router;
-
+    })

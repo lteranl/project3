@@ -93,11 +93,11 @@ class Dashboard extends Component {
             <div class="card-image">
               <img src={this.state.cart.img} />
               <span class="card-title">{this.state.cart.title}</span>
-              <a onClick={()=> props.dispatch({type: REMOVE_SHOPPING_CART, payload:item})} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">X</i></a>
+              <a onClick={()=> this.state.cart.dispatch({type: REMOVE_SHOPPING_CART, payload:item})} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">X</i></a>
             </div>
             <div class="card-content">
               <p>{this.state.cart.description}</p>
-              <p>{item.state.cart.price}</p>
+              <p>{this.state.cart.price}</p>
             </div>
           </div>
         </div>)}
