@@ -6,6 +6,8 @@ import Checkout from "../layout/Checkout";
 import { Link } from "react-router-dom";
 import store from '../../store';
 import {REMOVE_SHOPPING_CART} from "../../actions/types"
+import Items from "../products/items"
+//import Items from "../products";
 
 class Dashboard extends Component {
 
@@ -91,13 +93,13 @@ class Dashboard extends Component {
                         {this.state.cart.map(item=> <div class="cardImg col s12 m4">
           <div class="card">
             <div class="card-image">
-              <img src={this.state.cart.img} />
+              <img src={item.img} />
               <span class="card-title">{this.state.cart.title}</span>
               <a onClick={()=> this.state.cart.dispatch({type: REMOVE_SHOPPING_CART, payload:item})} class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">X</i></a>
             </div>
             <div class="card-content">
-              <p>{this.state.cart.description}</p>
-              <p>{this.state.cart.price}</p>
+              <p>{item.description}</p>
+              <p>{item.price}</p>
             </div>
           </div>
         </div>)}
@@ -118,7 +120,7 @@ class Dashboard extends Component {
                 </div>
             </div>
 
-            {this.state.cart.map(a=> <h1>YOU HAVESOMETHING IN CART!</h1>)}
+
             </>
         )
     }
@@ -130,7 +132,8 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    cart: state.cart
 });
 
 export default connect(
