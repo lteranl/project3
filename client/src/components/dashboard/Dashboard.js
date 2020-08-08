@@ -117,8 +117,6 @@ class Dashboard extends Component {
                     </div>
                 </div>
             </div>
-
-            {this.state.cart.map(a=> <h1>YOU HAVESOMETHING IN CART!</h1>)}
             </>
         )
     }

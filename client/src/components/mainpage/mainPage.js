@@ -7,6 +7,7 @@ import {logoutUser} from '../../actions/authActions';
 import { SET_SHOPPING_CART} from '../../actions/types'
 
 import {connect} from 'react-redux'
+import Button from '@material-ui/core/Button';
 
 // import Register from "./components/auth/Register";
 // import Login from "./components/auth/Login";
@@ -29,6 +30,7 @@ function App(props) {
                     <b>Home</b>
               </Link>
               <Link to="/dashboard" className="btn-flat waves-effect">Cart</Link>
+              <Button href="/dashboard" variant="contained" color="secondary">Secondary</Button>
             {!user.id ? <><Link to="/login" className="btn-flat waves-effect">Login</Link>
             <Link to="/register" className="btn-flat waves-effect">Register Now</Link></> : <button className="btn-flat waves-effect" onClick={handleLogout}>Log Out</button>}
           </div>
