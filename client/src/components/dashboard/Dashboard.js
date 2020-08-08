@@ -5,13 +5,14 @@ import { logoutUser } from "../../actions/authActions";
 import Checkout from "../layout/Checkout";
 import { Link } from "react-router-dom";
 import store from "../../store";
+import {bindActionCreators} from "redux";
 import { REMOVE_SHOPPING_CART } from "../../actions/types";
 import Items from "../products/items";
 //import Items from "../products";
 
 class Dashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isCartOpen: false,
@@ -26,6 +27,7 @@ class Dashboard extends Component {
     this.updateQuantityInCart = this.updateQuantityInCart.bind(this);
     this.removeLineItemInCart = this.removeLineItemInCart.bind(this);
   }
+
 
   // componentDidMount(){
   //   async()=> {
@@ -87,6 +89,8 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(this.state.cart)
+    console.log(this.props)
     return (
       <>
         <div className="nav">
@@ -97,7 +101,7 @@ class Dashboard extends Component {
                 <h5>{Date(" ")}</h5>
                 <h5>Hello, {user.name.split(" ")[0]}</h5>
                 <p className="flow-text black-text text-darken-1" />
-                {this.state.cart.map((item) => (
+                {store.getState().cart.cart.map((item, i) => (
                   <div class="cardImg col s12 m4">
                     <div class="card">
                       <div class="card-image">
@@ -105,9 +109,9 @@ class Dashboard extends Component {
                         <span class="card-title">{this.state.cart.title}</span>
                         <a
                           onClick={() =>
-                            this.state.cart.dispatch({
+                            this.props.dispatch({
                               type: REMOVE_SHOPPING_CART,
-                              payload: item,
+                              payload: i,
                             })
                           }
                           class="btn-floating halfway-fab waves-effect waves-light red"
@@ -151,6 +155,7 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -158,4 +163,8 @@ const mapStateToProps = (state) => ({
   cart: state.cart,
 });
 
-export default connect(mapStateToProps, { logoutUser })(Dashboard);
+const mapDispatchToProps = dispatch => ({
+  dispatch, ...bindActionCreators({logoutUser}, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

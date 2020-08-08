@@ -17,6 +17,7 @@ import Typography from "@material-ui/core/Typography";
 // //not sure if this is correct
 // import '@material-ui/core'
 function App(props) {
+  console.log(props)
   const {
     auth: { user },
   } = store.getState();

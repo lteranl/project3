@@ -12,8 +12,6 @@ export const registerUser = (userData, history) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
         }));
-
-
 }
 
 export const loginUser = userData => dispatch => {
