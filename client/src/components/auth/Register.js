@@ -54,21 +54,21 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
+      <div className="containerNew">
         <AppBar id="appbar" position="sticky" color="secondary">
           <Toolbar>
-            <Typography class="grannies" variant="h4">
+            <Button class="grannies" variant="h4" href="/" color="inherit">
               Grannies
-            </Typography>
-            <Button href="/" color="inherit">
+            </Button>
+            {/* <Button href="/" color="inherit">
               Home
-            </Button>
-            <Button href="/Login" color="inherit">
+            </Button> */}
+            {/* <Button href="/Login" color="inherit">
               Login
-            </Button>
+            </Button> */}
           </Toolbar>
         </AppBar>
-
+        <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
             <Link to="/" className="btn-flat waves-effect"></Link>
@@ -87,7 +87,7 @@ class Register extends Component {
                   value={this.state.name}
                   error={errors.name}
                   id="name"
-                  type="name"
+                  type="text"
                   className={classnames("", {
                     invalid: errors.name,
                   })}
@@ -101,6 +101,7 @@ class Register extends Component {
                   value={this.state.email}
                   error={errors.email}
                   id="email"
+                  // passed through type ="email" to get the syling like other input fields - BH
                   type="email"
                   className={classnames("", {
                     invalid: errors.email,
@@ -155,6 +156,7 @@ class Register extends Component {
           </div>
         </div>
       </div>
+    </div>
     );
   }
 }

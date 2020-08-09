@@ -6,27 +6,30 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 class Checkout extends Component {
-    render() {
-        return (
-            <div style={{ height: "10vh" }} className="container valign-wrapper">
-            <AppBar id="appbar" position="sticky" color="secondary">
+  render() {
+    return (
+      // removed style and className from nav to make it consitent with rest of pages - BH
+      // <div style={{ height: "10vh" }} className="container valign-wrapper">
+      <div>
+        <AppBar id="appbar" position="sticky" color="secondary">
           <Toolbar>
-            <Typography class="grannies" variant="h4">
+            <Button href="/" color="inherit" class="grannies" variant="h4">
               Grannies
-            </Typography>
-            <Button href="/" color="inherit">
-              Home
             </Button>
+            {/* removed button href and made logo link home */}
+            {/* <Button href="/" color="inherit">
+              Home
+            </Button> */}
           </Toolbar>
         </AppBar>
-                <div className = "row">
-                    <div className = "col s12 center-align">
-                        <h2 className="col s12 center-align"></h2>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+        <div className="row">
+          <div className="col s12 center-align">
+            <h2 className="col s12 center-align"></h2>
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Checkout;

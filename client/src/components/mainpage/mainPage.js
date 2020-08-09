@@ -17,9 +17,9 @@ import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
 // //not sure if this is correct
 // import '@material-ui/core'
 function App(props) {
-  console.log(props)
+  console.log(props);
   const {
-    auth: { user },
+    auth: { user }
   } = store.getState();
   console.log(props.cart);
   const handleLogout = () => {
@@ -28,20 +28,16 @@ function App(props) {
   };
   return (
     // <React.Fragment>
-    <div className="container">
+    <div className="containerNew">
       <AppBar id="appbar" position="sticky" color="secondary">
         <Toolbar>
-          <Typography
-            display="flex"
-            justifyContent="flex-end"
-            class="grannies"
-            variant="h4"
-          >
+          <Button href="/" color="inherit" class="grannies" variant="h4">
             Grannies
-          </Typography>
-          <Button href="" color="inherit">
-            Home
           </Button>
+          {/* removed Home link and now using logo to link to home - BH */}
+          {/* <Button href="" color="inherit">
+            Home
+          </Button> */}
           <Button href="/dashboard" color="inherit">
             Cart
           </Button>
@@ -50,9 +46,10 @@ function App(props) {
               <Button href="/login" color="inherit">
                 Login
               </Button>
-              <Button href="/register" color="inherit">
-                Register Now
-              </Button>
+              {/* changed this to Register instead of "Register Now" to save room in Nav - BH */}
+              {/* <Button href="/register" color="inherit">
+                Register
+              </Button> */}
             </>
           ) : (
             <Button color="inherit" onClick={handleLogout}>
@@ -65,38 +62,40 @@ function App(props) {
       <div>
         <ul className="products"></ul>
       </div>
-
-      <div class="row" style={{ marginTop: "10vh" }}>
-        {Items.map((item) => (
-          <div class="cardImg col s12 m4">
-            <div class="card">
-              <div class="card-image">
-                <img src={item.img} />
-                <span class="card-title">{item.title}</span>
-                <a
-                  onClick={() =>
-                    props.dispatch({ type: SET_SHOPPING_CART, payload: item })
-                  }
-                  class="btn-floating halfway-fab waves-effect waves-light red"
-                >
-                  <i class="material-icons">add</i>
-                </a>
-              </div>
-              <div class="card-content">
-                <p>{item.description}</p>
-                <p>{item.price}</p>
+      {/* passed through the div called container (a materialize css class) here to keep products not 
+      growing the entire width of the page - BH */}
+      <div class="container">
+        <div class="row" style={{ marginTop: "10vh" }}>
+          {Items.map(item => (
+            <div class="cardImg col s12 m4">
+              <div class="card">
+                <div class="card-image">
+                  <img src={item.img} />
+                  <span class="card-title">{item.title}</span>
+                  <a
+                    onClick={() =>
+                      props.dispatch({ type: SET_SHOPPING_CART, payload: item })
+                    }
+                    class="btn-floating halfway-fab waves-effect waves-light red"
+                  >
+                    <i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <p>{item.description}</p>
+                  <p>{item.price}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
-
     // </React.Fragment>
   );
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth,
-  cart: state.cart,
+  cart: state.cart
 });
 export default connect(mapStateToProps)(App);
