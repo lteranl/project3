@@ -12,8 +12,6 @@ export const registerUser = (userData, history) => dispatch => {
             type: GET_ERRORS,
             payload: err.response.data
         }));
-
-
 }
 
 export const loginUser = userData => dispatch => {
@@ -48,6 +46,7 @@ export const setUserLoading = decoded => {
 }
 
 export const logoutUser = () => dispatch => {
+    console.log("ITS ALIVE!")
     localStorage.removeItem("jwtToken"); //removes token from user local
     setAuthToken(false);
     dispatch(setCurrentUser({}));

@@ -1,0 +1,48 @@
+.root{
+    --mainBlue:#2a2a72;
+    --lightBlue:#009ffd;
+    --mainWhite:#f3f3f3;
+    --mainDark:#232528;
+    --mainYellow: #ffa400;
+  }
+  
+  body{
+    font-family: 'Times New Roman', Times, serif;
+    background: var(--mainWhite);
+    color: var(--mainDark);
+  }
+  
+  .text-title{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+  }
+  
+  .text-blue{
+    color: var(--mainBlue)
+  }
+  btn-flat{
+    font-weight: bolder;
+  }
+
+  .card .card-image{
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+img{
+  height: 500px;
+  width: 300px;
+}
+
+
+.grannies{
+  position: absolute;
+  margin-left: 125vh;
+  margin-bottom: 4vh;
+}

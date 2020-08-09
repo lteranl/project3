@@ -5,155 +5,169 @@ import PropTypes from "prop-types";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
+import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
+
 class Register extends Component {
-    constructor() {
-        super();
-        this.state = {
-            name: "",
-            email: "",
-            password: "",
-            password2: "",
-            errors: {}
-        };
-    }
-
-    // checks if user is logged in, if so redirects to dash
-componentDidMount() {
-    if (this.props.auth.isAuthenticated) {
-        this.props.history.push("/dashboard");
-    }
-}
-
-    componentWillRecieveProps(nextProps) {
-        if (nextProps.errors) {
-            this.setState({
-                errors: nextProps.errors
-            });
-        }
-    }
-
-    onChange = e => {
-        this.setState({ [e.target.id]: e.target.value });
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+      errors: {},
     };
+  }
 
-    onSubmit = e => {
-        e.preventDefault();
+  // checks if user is logged in, if so redirects to dash
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
+  componentWillRecieveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+      });
+    }
+  }
+
+  onChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
 
     const newUser = {
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password,
-        password2: this.state.password2
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
     };
-   this.props.registerUser(newUser, this.props.history);
-    };
+    this.props.registerUser(newUser, this.props.history);
+  };
 
-    
-
-    render() {
-        const { errors } = this.state;
+  render() {
+    const { errors } = this.state;
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col s8 offset-s2">
-                    <Link to="/" className="btn-flat waves-effect">
-                        <b>Home</b>
-                    </Link>
-                    <div className="col s12" style={{ paddingLeft: "11px"}}>
-                        <h3><b>Register</b></h3>
-                        <p className="black-text text-darken-1">
-                            Have an account? <Link to="/login">Login</Link>
-                        </p>
-                    </div>
-                    <form noValidate onSubmit={this.onSubmit}>
-                        <div className="input-field col s12">
-                            <input 
-                                onChange={this.onChange}
-                                value={this.state.name}
-                                error={errors.name}
-                                id="name"
-                                type="name"
-                                className={classnames("", {
-                                    invalid: errors.name
-                                })}
-                                />
-                                <label htmlFor="name">Name</label>
-                                <span className="red-text">{errors.name}</span>
-                        </div>
-                        <div className="input-field col s12">
-                            <input 
-                                onChange={this.onChange}
-                                value={this.state.email}
-                                error={errors.email}
-                                id="email"
-                                type="email"
-                                className={classnames("", {
-                                    invalid: errors.email
-                                })}
-                            />
-                            <label htmlFor="email">Email</label>
-                            <span className="red-text">{errors.email}</span>
-                        </div>
-                        <div className="input-field col s12">
-                            <input 
-                                onChange={this.onChange}
-                                value={this.state.password}
-                                error={errors.password}
-                                id="password"
-                                type="password"
-                                className={classnames("", {
-                                    invalid: errors.password
-                                })}
-                                />
-                                <label htmlFor="password">Password</label>
-                                <span className="red-text">{errors.password}</span>
-                        </div>
-                        <div className="input-field col s12">
-                            <input 
-                                onChange={this.onChange}
-                                value={this.state.password2}
-                                error={errors.password2}
-                                id="password2"
-                                type="password"
-                                className={classnames("", {
-                                    invalid: errors.password
-                                })}
-                                />
-                                <label htmlFor="password2">Confirm Password</label>
-                                <span className="red-text">{errors.password2}</span>
-                        </div>
-                        <div className="col s12" style={{ paddingLeft: "11px" }}>
-                            <button
-                                style={{
-                                    width: "120px",
-                                    borderRadius: "3px",
-                                    letterSpacing: "2px",
-                                    marginTop: "2rem"
-                                }}
-                                type="submit"
-                                className="btn btn-large">SignUp</button>
-                        </div>
-                    </form>
-                </div>
+      <div className="container">
+        <AppBar id="appbar" position="sticky" color="secondary">
+          <Toolbar>
+            <Typography class="grannies" variant="h4">
+              Grannies
+            </Typography>
+            <Button href="/" color="inherit">
+              Home
+            </Button>
+            <Button href="/Login" color="inherit">
+              Login
+            </Button>
+          </Toolbar>
+        </AppBar>
+
+        <div className="row">
+          <div className="col s8 offset-s2">
+            <Link to="/" className="btn-flat waves-effect"></Link>
+            <div className="col s12" style={{ paddingLeft: "11px" }}>
+              <h3>
+                <b>Register</b>
+              </h3>
+              <p className="black-text text-darken-1">
+                Have an account? <Link to="/login">Login</Link>
+              </p>
             </div>
+            <form noValidate onSubmit={this.onSubmit}>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.name}
+                  error={errors.name}
+                  id="name"
+                  type="name"
+                  className={classnames("", {
+                    invalid: errors.name,
+                  })}
+                />
+                <label htmlFor="name">Name</label>
+                <span className="red-text">{errors.name}</span>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.email}
+                  error={errors.email}
+                  id="email"
+                  type="email"
+                  className={classnames("", {
+                    invalid: errors.email,
+                  })}
+                />
+                <label htmlFor="email">Email</label>
+                <span className="red-text">{errors.email}</span>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.password}
+                  error={errors.password}
+                  id="password"
+                  type="password"
+                  className={classnames("", {
+                    invalid: errors.password,
+                  })}
+                />
+                <label htmlFor="password">Password</label>
+                <span className="red-text">{errors.password}</span>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.password2}
+                  error={errors.password2}
+                  id="password2"
+                  type="password"
+                  className={classnames("", {
+                    invalid: errors.password,
+                  })}
+                />
+                <label htmlFor="password2">Confirm Password</label>
+                <span className="red-text">{errors.password2}</span>
+              </div>
+              <div className="col s12" style={{ paddingLeft: "11px" }}>
+                <button
+                  style={{
+                    width: "120px",
+                    borderRadius: "3px",
+                    letterSpacing: "2px",
+                    marginTop: "2rem",
+                  }}
+                  type="submit"
+                  className="btn btn-large"
+                >
+                  SignUp
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-    )
-    }
+      </div>
+    );
+  }
 }
 
 Register.propTypes = {
-    registerUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-    auth: state.auth,
-    errors: state.errors
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
 });
 
-export default connect(
-    mapStateToProps,
-    { registerUser }
-)(withRouter(Register));
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));
