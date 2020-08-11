@@ -4,7 +4,7 @@ import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
+import "../../App.css";
 import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
 
 class Payment extends Component {
@@ -18,20 +18,18 @@ class Payment extends Component {
     }
 
 render() {
-    const { errors } = this.state;
+    const { user } = this.state;
     return(
         <div className="container">
             <AppBar id="appbar" position="sticky" color="secondary">
                 <Toolbar>
-                    <Typography className="grannies" variant="h4">
+                    <Typography class="grannies" variant="h4" display="flex" justifyContent="flex-end">
                         Grannies
                     </Typography>
                     <Button href="/" color="inherit">
               Home
             </Button>
-            <Button href="/Register" color="inherit">
-              Register
-            </Button>
+            
                 </Toolbar>
             </AppBar>
             <div style={{ marginTop: "3rem" }} className="row">
