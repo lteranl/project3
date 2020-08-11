@@ -13,6 +13,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import MainPage from "./components/mainpage/mainPage";
+import Payment from "./components/layout/Pay"
 
 import Products from "./components/shopify/Products";
 
@@ -128,6 +129,7 @@ class App extends Component {
       <Route exact path = "/register" component={Register} />
       <Route exact path = "/login" component={Login} />
       <Route exact path = "/products" component={Products} />
+      <Route exact path ="/payment" component={Payment} />
       {/* <Route exact path = "/mainPage" component={MainPage} /> */}
       <Switch>
         <PrivateRoute exact path="/dashboard" component = {Dashboard} />

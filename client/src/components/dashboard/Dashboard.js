@@ -8,6 +8,7 @@ import store from "../../store";
 import {bindActionCreators} from "redux";
 import { REMOVE_SHOPPING_CART } from "../../actions/types";
 import Items from "../products/items";
+//import payment from "../layout/Pay"
 //import Items from "../products";
 
 class Dashboard extends Component {
@@ -127,6 +128,7 @@ class Dashboard extends Component {
                     </div>
                   </div>
                 ))}
+                <Link to="/payment" className="btn btn-flat">Pay Now?</Link>
                 <br />
                 <Link to="/" className="btn btn-flat">
                   Not Done Shopping?
