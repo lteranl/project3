@@ -89,7 +89,7 @@ class Login extends Component {
                   })}
                 />
                 <br/>
-                <label htmlFor="email">Email</label>
+                <label className="red-text" htmlFor="email">Email</label>
                 <br/>
                 <span className="red-text">
                   {errors.email}
@@ -108,7 +108,7 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect,
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <label className="red-text" htmlFor="password">Password</label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}
