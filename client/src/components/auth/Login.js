@@ -77,6 +77,7 @@ class Login extends Component {
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
+                <br/>
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -87,13 +88,16 @@ class Login extends Component {
                     invalid: errors.email || errors.emailnotfound,
                   })}
                 />
+                <br/>
                 <label htmlFor="email">Email</label>
+                <br/>
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
                 </span>
               </div>
               <div className="input-field col s12">
+                <br/>
                 <input
                   onChange={this.onChange}
                   value={this.state.password}

@@ -26,7 +26,7 @@ render() {
                     <Typography class="grannies" variant="h4" display="flex" justifyContent="flex-end">
                         Grannies
                     </Typography>
-                    <Button href="/" color="inherit">
+                    <Button href="/" color="secondary">
               Home
             </Button>
             
