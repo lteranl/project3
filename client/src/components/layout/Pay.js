@@ -7,6 +7,10 @@ import { connect } from "react-redux";
 import "../../App.css";
 import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
 
+function closeout() {
+    localStorage.removeItem("cart")
+}
+
 class Payment extends Component {
     constructor() {
       super();
@@ -53,9 +57,13 @@ render() {
                                 <br/>
                                 <br/>
                                 <br/>
-                                <input id="payBtn" variant="pay now" className="btn btn-flat waves-effect" type="submit"/>
-                                
-
+                                <Link to="/" 
+                                    style={{ width: "100px",
+                                    borderRadius: "5px",
+                                    letterSpacing: "2px"}}
+                                    >
+                                <Button onClick={closeout()} type="btn btn-flat secondary">Submit</Button>                                
+                                </Link>
 
                         </form>
                     </div>
