@@ -115,7 +115,7 @@ class Login extends Component {
                 </span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11px" }}>
-                <button
+                <Button
                   style={{
                     width: "130px",
                     borderRadius: "2px",
@@ -123,10 +123,10 @@ class Login extends Component {
                     marginTop: "2rem",
                   }}
                   type="submit"
-                  className="btn btn-large"
+                  className="btn btn-large red"
                 >
                   Login
-                </button>
+                </Button>
               </div>
             </form>
           </div>

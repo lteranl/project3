@@ -144,7 +144,7 @@ class Register extends Component {
                 <span className="red-text">{errors.password2}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11px" }}>
-                <button
+                <Button
                   style={{
                     width: "120px",
                     borderRadius: "3px",
@@ -152,10 +152,10 @@ class Register extends Component {
                     marginTop: "2rem",
                   }}
                   type="submit"
-                  className="btn btn-large"
+                  className="btn btn-large red"
                 >
                   SignUp
-                </button>
+                </Button>
               </div>
             </form>
           </div>
