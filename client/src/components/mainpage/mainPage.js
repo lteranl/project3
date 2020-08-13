@@ -7,7 +7,8 @@ import { logoutUser } from "../../actions/authActions";
 import { SET_SHOPPING_CART } from "../../actions/types";
 
 import { connect } from "react-redux";
-import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
+import { makeStyles } from '@material-ui/core/styles';
+import { Button, AppBar, Toolbar, Typography, Grid, Card, CardContent, CardMedia } from "@material-ui/core/";
 // import AppBar from "@material-ui/core/AppBar";
 // import Toolbar from "@material-ui/core/Toolbar";
 // import Typography from "@material-ui/core/Typography";
@@ -16,10 +17,26 @@ import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
 // import Login from "./components/auth/Login";
 // //not sure if this is correct
 // import '@material-ui/core'
+
+const useStyles = makeStyles({
+  media: {
+    width: "100%",
+    height: 300,
+  },
+  // styles to position the button but applying these made button unclickable and removed styles
+  // button: {
+  //   position: "absolute",
+  //   right: 25,
+  //   bottom: 105,
+  // },
+});
+
 function App(props) {
-  console.log(props)
+  const classes = useStyles();
+
+  console.log(props);
   const {
-    auth: { user },
+    auth: { user }
   } = store.getState();
   console.log(props.cart);
   const handleLogout = () => {
@@ -66,37 +83,35 @@ function App(props) {
         <ul className="products"></ul>
       </div>
 
-      <div class="row" style={{ marginTop: "10vh" }}>
-        {Items.map((item) => (
-          <div class="cardImg col s12 m4">
-            <div class="card">
-              <div class="card-image">
-                <img src={item.img} />
-                <span class="card-title">{item.title}</span>
+      <Grid container spacing={2}>
+        {Items.map(item => (
+          <Grid item xs={12} sm={4}>
+            <Card style={{ position: "relative" }}>
+              <CardMedia image={item.img} className={classes.media}>
                 <a
                   onClick={() =>
                     props.dispatch({ type: SET_SHOPPING_CART, payload: item })
                   }
-                  class="btn-floating halfway-fab waves-effect waves-light red"
-                >
+                  class="btn-floating halfway-fab waves-effect waves-light red" 
+                  style={{position: "absolute", bottom: "110px", right: "10px"}}>
                   <i class="material-icons">add</i>
                 </a>
-              </div>
-              <div class="card-content">
+              </CardMedia>
+              <CardContent>
                 <p>{item.description}</p>
                 <p>{item.price}</p>
-              </div>
-            </div>
-          </div>
+              </CardContent>
+            </Card>
+          </Grid>
         ))}
-      </div>
+      </Grid>
     </div>
 
     // </React.Fragment>
   );
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth,
-  cart: state.cart,
+  cart: state.cart
 });
 export default connect(mapStateToProps)(App);
