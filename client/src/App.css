@@ -7,9 +7,10 @@
   }
   
   body{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background: var(--mainWhite);
     color: var(--mainDark);
+    background-color: #F5F4ED;
   }
   
   .text-title{
@@ -42,7 +43,19 @@ img{
 
 
 .grannies{
-  position: absolute;
-  margin-left: 125vh;
-  margin-bottom: 4vh;
+  /* position: absolute; */
+  /* margin-bottom: 4vh; */
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 900;
+  padding-right: 40px;
+  color: lightcoral
+}
+
+#appbar {
+  color: #333333;
+  background-color: #fcf9e5;
+  box-shadow: none;
+  border-bottom: #f4f0d2 1px solid;
+  position: fixed;
 }
