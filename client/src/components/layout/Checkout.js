@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Button from "@material-ui/core/Button";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+
+import { Button, AppBar, Toolbar, Typography } from "@material-ui/core/";
+
 class Checkout extends Component {
     render() {
         return (
-            <div style={{ height: "10vh" }} className="container valign-wrapper">
+            <div className="container">
             <AppBar id="appbar" position="sticky" color="secondary">
           <Toolbar>
             <Typography class="grannies" variant="h4">
