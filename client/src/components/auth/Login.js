@@ -77,6 +77,7 @@ class Login extends Component {
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
+                <br/>
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -87,13 +88,16 @@ class Login extends Component {
                     invalid: errors.email || errors.emailnotfound,
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <br/>
+                <label className="red-text" htmlFor="email">Email</label>
+                <br/>
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
                 </span>
               </div>
               <div className="input-field col s12">
+                <br/>
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
@@ -104,14 +108,14 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect,
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <label className="red-text" htmlFor="password">Password</label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}
                 </span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11px" }}>
-                <button
+                <Button
                   style={{
                     width: "130px",
                     borderRadius: "2px",
@@ -119,10 +123,10 @@ class Login extends Component {
                     marginTop: "2rem",
                   }}
                   type="submit"
-                  className="btn btn-large"
+                  className="btn btn-large red"
                 >
                   Login
-                </button>
+                </Button>
               </div>
             </form>
           </div>
