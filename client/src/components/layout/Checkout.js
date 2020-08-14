@@ -19,7 +19,7 @@ class Checkout extends Component {
           </Toolbar>
         </AppBar>
                 <div className = "row">
-                    <div className = "col s12 center-align">
+                    <div className = "col s6 center-align">
                         <h2 className="col s12 center-align"></h2>
                     </div>
                 </div>
