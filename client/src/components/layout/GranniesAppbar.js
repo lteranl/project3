@@ -4,6 +4,7 @@ import "../../App.css";
 import store from "../../store";
 import { logoutUser } from "../../actions/authActions";
 import { SET_SHOPPING_CART } from "../../actions/types";
+import { connect } from "react-redux";
 
 function GranniesAppBar(props) {
   const {
@@ -53,4 +54,8 @@ function GranniesAppBar(props) {
   );
 }
 
-export default GranniesAppBar;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  cart: state.cart
+});
+export default connect(mapStateToProps)(GranniesAppBar)
